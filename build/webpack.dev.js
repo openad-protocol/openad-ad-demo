@@ -94,8 +94,8 @@ module.exports = (RESETENV) => {
       }),
       new FriendlyErrorsWebpackPlugin({
         compilationSuccessInfo: {
-          messages: [`You application is running here http://${localIpAddress}:${BuildENV.port}`,
-            `You can also open local address http://localhost:${BuildENV.port}`],
+          messages: [`You application is running here https://${localIpAddress}:${BuildENV.port}`,
+            `You can also open local address https://localhost:${BuildENV.port}`],
         },
         clearConsole: true,
         // eslint-disable-next-line no-unused-vars

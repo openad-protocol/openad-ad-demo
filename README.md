@@ -10,7 +10,7 @@
 	3. Open 'https://bf2055756e.node.openad.network/js/sdk.v3.js' in your browser;
     4. Check the sdk version, and fill version info to the script attribute and V parameter;
     5. You can directly quote the following script:
-    <script type="text/javascript" version="3.0.1" src="https://bf2055756e.node.openad.network/js/sdk.v3.js?v=3.0.1"></script>
+    <script type="text/javascript" version="3.0.2" src="https://bf2055756e.node.openad.network/js/sdk.v3.js?v=3.0.2"></script>
 
 	In order to ensure that you can get the latest version of the sdk, check the SDK URL and Version information before each release of your APP.
     

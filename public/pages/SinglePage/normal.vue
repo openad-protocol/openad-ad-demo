@@ -24,8 +24,8 @@ export default defineComponent({
     /** If your web application is a TMA (Telegram Mini App), please use the following code. **/
     const TGAD = reactive({
       adInfo: {
-        zoneId: 56, // int,  This is an example zoneId, please get your own code parameters
-        publisherId: 49, // int, This is an example publisherId, please get your own code parameters
+        zoneId: 95, // int,  This is an example zoneId, please get your own code parameters
+        publisherId: 69, // int, This is an example publisherId, please get your own code parameters
       },
       adParams: {
         version: 'v3', //your app version , If there is no data, please leave it blank
@@ -36,8 +36,8 @@ export default defineComponent({
         /**If you've loaded `https://telegram.org/js/telegram-web-app.js` in your TMA**/
         //TG = { type: 'telegram', FN: window.Telegram };
         /**If you're using `@telegram-apps/sdk` in your TMA**/
-        //import { initUtils } from '@telegram-apps/sdk';
-        //TG = { type: '@telegram-apps/sdk', FN: initUtils() };
+        //import { initUtils, retrieveLaunchParams } from "@telegram-apps/sdk";
+        //TG: { type: '@telegram-apps/sdk', FN: { initUtils, retrieveLaunchParams } };
         /**If you haven't loaded any Telegram SDK**/
         //TG = { type: 'noSDK', FN: null }
       },

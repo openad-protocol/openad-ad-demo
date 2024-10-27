@@ -22,9 +22,12 @@ export default defineComponent({
     'van-button': Button,
   },
   setup(){
-    const paths = ref([{ path: '/SinglePage/normal', desc: 'load ads with normal mode...' },
+    const paths = ref([
+      { path: '/SinglePage/normal', desc: 'load ads with normal mode...' },
       { path: '/SinglePage/interface', desc: 'loads ad with interface mode...' },
-      { path: '/SinglePage/native', desc: 'load ads with native mode...' }]);
+      { path: '/SinglePage/native', desc: 'load ads with native mode...' },
+      { path: '/SinglePage/interactive', desc: 'load ad with interactive mode...' },
+    ]);
 
     const router = useRouter();
 

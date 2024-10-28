@@ -24,8 +24,8 @@ export default defineComponent({
     /** If your web application is a TMA (Telegram Mini App), please use the following code. **/
     const TGAD = reactive({
       adInfo: {
-        zoneId: 95, // int,  This is an example zoneId, please get your own code parameters
-        publisherId: 69, // int, This is an example publisherId, please get your own code parameters
+        zoneId: 114, // int,  This is an example zoneId, please get your own code parameters
+        publisherId: 91, // int, This is an example publisherId, please get your own code parameters
       },
       adParams: {
         version: 'v3', //your app version , If there is no data, please leave it blank

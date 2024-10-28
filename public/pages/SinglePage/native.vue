@@ -1,6 +1,6 @@
 <template>
   <div class="singlePage native MFlex">
-    <h2>This page is a demo for native mode to load OpenAd ads! </h2>
+    <h2>This page is a demo for native mode to load OpenAd ad! </h2>
     <div class="iframe TGURL">
       <iframe :src="iframe.TGURL"></iframe>
     </div>

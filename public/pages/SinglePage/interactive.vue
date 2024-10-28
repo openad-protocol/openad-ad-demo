@@ -1,6 +1,6 @@
 <template>
   <div class="singlePage ajax MFlex">
-    <h2>This page is a demo for interactive mode to load OpenAd ad! </h2>
+    <h2>This page is a demo for interactive mode to load OpenAd ads! </h2>
     <van-button @click="Render" type="primary">
       Render
     </van-button>

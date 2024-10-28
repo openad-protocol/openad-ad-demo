@@ -26,7 +26,8 @@ export default defineComponent({
       { path: '/SinglePage/normal', desc: 'load ads with normal mode...' },
       { path: '/SinglePage/interface', desc: 'loads ad with interface mode...' },
       { path: '/SinglePage/native', desc: 'load ads with native mode...' },
-      { path: '/SinglePage/interactive', desc: 'load ad with interactive mode...' },
+      { path: '/SinglePage/AsyncLoad', desc: 'load ad with AsyncLoad mode...' },
+      { path: '/SinglePage/interactive', desc: 'load ads with interactive mode...' },
     ]);
 
     const router = useRouter();

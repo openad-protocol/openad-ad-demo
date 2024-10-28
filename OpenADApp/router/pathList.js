@@ -33,6 +33,11 @@ const pathList = [{
       component: () => import(/* webpackChunkName: "SinglePageNative" */'@/pages/SinglePage/native.vue'),
     },
     {
+      path: '/SinglePage/AsyncLoad',
+      name: 'SinglePageAsyncLoad',
+      meta: { title: '', keepAlive: false },
+      component: () => import(/* webpackChunkName: "SinglePageAsyncLoad" */'@/pages/SinglePage/AsyncLoad.vue'),
+    },{
       path: '/SinglePage/interactive',
       name: 'SinglePageInteractive',
       meta: { title: '', keepAlive: false },

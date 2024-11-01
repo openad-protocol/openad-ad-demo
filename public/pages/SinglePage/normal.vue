@@ -36,7 +36,7 @@ export default defineComponent({
         /**If you've loaded `https://telegram.org/js/telegram-web-app.js` in your TMA**/
         //TG = { type: 'telegram', FN: window.Telegram };
         /**If you're using `@telegram-apps/sdk` in your TMA**/
-        //import { initUtils } from '@telegram-apps/sdk';
+        //import { initUtils, retrieveLaunchParams } from "@telegram-apps/sdk";
         //TG: { type: '@telegram-apps/sdk', FN: { initUtils, retrieveLaunchParams } };
         /**If you haven't loaded any Telegram SDK**/
         //TG = { type: 'noSDK', FN: null }

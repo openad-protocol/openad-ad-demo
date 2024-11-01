@@ -146,6 +146,7 @@ export default defineComponent({
 
     const CallBackClickInfo = (adInfo) => {
       window.openADJsSDK.bridge.click(adInfo);
+      // no callbacks
       // if you want to do something, you can write here.
     }
 

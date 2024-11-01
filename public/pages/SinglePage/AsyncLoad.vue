@@ -1,8 +1,8 @@
 <template>
-  <div class="singlePage interface MFlex">
-    <h2>This page is a demo for interface mode to load OpenAd ad! </h2>
+  <div class="singlePage AsyncLoad MFlex">
+    <h2>This page is a demo for asynchronous mode to load OpenAd ad! </h2>
     <div class="openADJsSDKBanner TGAD" v-if="TGAD.banner.resource_url && TGAD.banner.width && TGAD.banner.height">
-      <a href="javascript:void(0)" class="Flex" rel="noopener nofollow" @click="CallBackClickInfo(TGAD.adInfo)">
+      <a href="javascript:void(0)" class="Flex" @click="CallBackClickInfo(TGAD.adInfo)">
         <img
           :src="TGAD.banner.resource_url"
           style="max-width: 100%;max-height: 100%;object-fit: contain;"
@@ -10,7 +10,7 @@
       </a>
     </div>
     <div class="openADJsSDKBanner WEBAD" v-if="WEBAD.banner.resource_url && WEBAD.banner.width && WEBAD.banner.height">
-      <a href="javascript:void(0)" class="Flex" rel="noopener nofollow" @click="CallBackClickInfo(WEBAD.adInfo)">
+      <a href="javascript:void(0)" class="Flex" @click="CallBackClickInfo(WEBAD.adInfo)">
         <img
           :src="WEBAD.banner.resource_url"
           style="max-width: 100%;max-height: 100%;object-fit: contain;"
@@ -26,9 +26,10 @@
 import { Button } from 'vant';
 import { defineComponent, getCurrentInstance, onMounted, reactive, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
+import PromiseLoadScript from '@/utils/PromiseLoadScript';
 
 export default defineComponent({
-  name: 'SinglePageInterface',
+  name: 'SinglePageAsyncLoad',
   components: {
     'van-button': Button,
   },
@@ -91,11 +92,26 @@ export default defineComponent({
       },
     });
 
-    onMounted( () => {
-      // eslint-disable-next-line no-use-before-define
-      getTGAD();
-      // eslint-disable-next-line no-use-before-define
-      getWEBAD();
+    onMounted( async () => {
+      // If you want to load our SDK through asynchronous methods
+      // #step1 open https://protocol.openad.network/sdkloader.js
+      // #step2 find window.openADSdkLoader.version = version,
+      //             window.openADSdkLoader.sdkURL = url,
+      //             window.openADSdkLoader.sdkName = name;
+      // #step3 every time, before release your app, please check the three keys above.
+      let res = await PromiseLoadScript({
+        name: 'openADJsSDK',
+        version: '3.0.4',
+        url: 'https://bf2055756e.node.openad.network/js/sdk.v3.js',
+        noCache: true,
+      });
+      if(res){
+        // eslint-disable-next-line no-use-before-define
+        await getTGAD();
+        // eslint-disable-next-line no-use-before-define
+        await getWEBAD();
+
+      }
     });
 
     const getTGAD = async () => {

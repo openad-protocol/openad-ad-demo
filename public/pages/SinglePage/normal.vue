@@ -1,5 +1,5 @@
 <template>
-  <div class="singlePage ajax MFlex">
+  <div class="singlePage normal MFlex">
     <h2>This page is a demo for normal mode to load OpenAd ads! </h2>
     <div class="openADJsSDKBanner TGAD" :zoneId="TGAD.adInfo.zoneId" :publisherId="TGAD.adInfo.publisherId" />
     <div class="openADJsSDKBanner WEBAD" :zoneId="WEBAD.adInfo.zoneId" :publisherId="WEBAD.adInfo.publisherId" />
@@ -14,7 +14,7 @@ import { defineComponent, reactive, onMounted, nextTick, getCurrentInstance } fr
 import { useRouter } from 'vue-router';
 
 export default defineComponent({
-  name: 'SinglePageJsSDK',
+  name: 'SinglePageNormal',
   components: {
     'van-button': Button,
   },
@@ -24,8 +24,8 @@ export default defineComponent({
     /** If your web application is a TMA (Telegram Mini App), please use the following code. **/
     const TGAD = reactive({
       adInfo: {
-        zoneId: 56, // int,  This is an example zoneId, please get your own code parameters
-        publisherId: 49, // int, This is an example publisherId, please get your own code parameters
+        zoneId: 114, // int,  This is an example zoneId, please get your own code parameters
+        publisherId: 91, // int, This is an example publisherId, please get your own code parameters
       },
       adParams: {
         version: 'v3', //your app version , If there is no data, please leave it blank
@@ -37,7 +37,7 @@ export default defineComponent({
         //TG = { type: 'telegram', FN: window.Telegram };
         /**If you're using `@telegram-apps/sdk` in your TMA**/
         //import { initUtils } from '@telegram-apps/sdk';
-        //TG = { type: '@telegram-apps/sdk', FN: initUtils() };
+        //TG: { type: '@telegram-apps/sdk', FN: { initUtils, retrieveLaunchParams } };
         /**If you haven't loaded any Telegram SDK**/
         //TG = { type: 'noSDK', FN: null }
       },

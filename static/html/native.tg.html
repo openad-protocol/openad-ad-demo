@@ -41,33 +41,26 @@
 <script type="text/javascript">
     window.addEventListener('load',  function() {
 		window.openAdNative = {
-			// Create a params object
 			adParams: {
 			  version: 'your-app-version', // your app version , If there is no data, please leave it blank
 			  TG: { type: 'telegram', FN: window.Telegram },
-			  //If you've loaded `https://telegram.org/js/telegram-web-app.js` in your TMA
-			  //TG = { type: 'telegram', FN: window.Telegram };
-			  //If you're using `@telegram-apps/sdk` in your TMA
-			  //import { initUtils } from '@telegram-apps/sdk';
-			  //TG = { type: '@telegram-apps/sdk', FN: initUtils() }
-			  //If you haven't loaded any Telegram SDK
-			  //TG = { type: 'noSDK', FN: null }
 			},
 			adInfo: {
-				zoneId: 56, // int,  This is an example zoneId, please get your own code parameters
-				publisherId: 49, // int, This is an example publisherId, please get your own code parameters
+                zoneId: 158, // int, This is an example zoneId, please get your own code parameters
+                publisherId: 49, // int, This is an example publisherId, please get your own code parameters
 			},
-			// Call SDK method to get advertising data
 			getAD: function(){
 				window.openADJsSDK.bridge.init({ adParams: this.adParams, adInfo: this.adInfo });
+                document.querySelector(`.openADJsSDKBanner[zoneId="${this.adInfo.zoneId}"][publisherId="${this.adInfo.publisherId}"]`).style.display = 'block';
 			},
-			// Close AD
-			destroy: function(adInfo){
-			  document.querySelector(`.openADJsSDKBanner[zoneId="${adInfo.zoneId}"][publisherId="${adInfo.publisherId}"]`).innerHTML = '';
+			destroy: function(){
+              const dom = document.querySelector(`.openADJsSDKBanner[zoneId="${this.adInfo.zoneId}"][publisherId="${this.adInfo.publisherId}"]`);
+              dom.innerHTML = '';
+              dom.style.display = 'none';
 			}
 		};
 		window.openAdNative.getAD();
-		//window.openAdNative.destroy(window.openAdNative.adInfo);
+		//window.openAdNative.destroy();
 	});
 </script>
 <!--openAD script above-->

@@ -45,11 +45,11 @@
 			  version: 'your-app-version', // your app version , If there is no data, please leave it blank
 			},
 			adInfo: {
-				zoneId: 79, // int,  This is an example zoneId, please get your own code parameters
-				publisherId: 56, // int, This is an example publisherId, please get your own code parameters
+                zoneId: 158, // int, This is an example zoneId, please get your own code parameters
+                publisherId: 49, // int, This is an example publisherId, please get your own code parameters
 			},
 			userInfo: {
-				userId: '', // user ID , If there is no data, please leave it blank
+				userId: '', // user Id , If there is no data, please leave it blank
 				firstName: '', // firstName or userId , If there is no data, please leave it blank
 				lastName: '', // lastName or userId , If there is no data, please leave it blank
 				username: '', // username or userId , If there is no data, please leave it blank
@@ -70,7 +70,7 @@
 			  document.querySelector(`.openADJsSDKBanner[zoneId="${adInfo.zoneId}"][publisherId="${adInfo.publisherId}"]`).innerHTML = '';
 			}
 		};
-		window.openAdNative.initUserInfo({userId: '', firstName: '', lastName: '', username: ''}); // If the user has already logged into your application, please reset the user information 
+		window.openAdNative.initUserInfo({userId: 'userId', firstName: 'firstName', lastName: 'lastName', username: 'username'}); // If the user has already logged into your application, please reset the user information
 		window.openAdNative.getAD();
 	});
 </script>

@@ -24,7 +24,7 @@
 </template>
 <script>
 import { Button } from 'vant';
-import { defineComponent, getCurrentInstance, onMounted, reactive, nextTick } from 'vue';
+import { defineComponent, onMounted, reactive, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
 
 export default defineComponent({
@@ -34,26 +34,15 @@ export default defineComponent({
   },
   setup(){
     const router = useRouter();
-    const { proxy } = getCurrentInstance();
     /** If your web application is a TMA (Telegram Mini App), please use the following code. **/
     const TGAD = reactive({
       adInfo: {
-        zoneId: 95, // int,  This is an example zoneId, please get your own code parameters
-        publisherId: 69, // int, This is an example publisherId, please get your own code parameters
+        zoneId: 114, // int,  This is an example zoneId, please get your own code parameters
+        publisherId: 91, // int, This is an example publisherId, please get your own code parameters
       },
       adParams: {
         version: 'v3', //your app version , If there is no data, please leave it blank
-        TG: {
-          type: 'noSDK',
-          FN: null,
-        },
-        /**If you've loaded `https://telegram.org/js/telegram-web-app.js` in your TMA**/
-        //TG = { type: 'telegram', FN: window.Telegram };
-        /**If you're using `@telegram-apps/sdk` in your TMA**/
-        //import { initUtils, retrieveLaunchParams } from "@telegram-apps/sdk";
-        //TG: { type: '@telegram-apps/sdk', FN: { initUtils, retrieveLaunchParams } };
-        /**If you haven't loaded any Telegram SDK**/
-        //TG = { type: 'noSDK', FN: null }
+        TG: true,
       },
       banner: {
         'width': null,
@@ -68,8 +57,8 @@ export default defineComponent({
     /** If your web application is not TMA, please use the following code. **/
     const WEBAD = reactive({
       adInfo: {
-        zoneId: proxy.$AppEnv.zoneId, // int, This is an example zoneId, please get your own code parameters
-        publisherId: proxy.$AppEnv.publisherId, // int, This is an example publisherId, please get your own code parameters
+        zoneId: 158, // int, This is an example zoneId, please get your own code parameters
+        publisherId: 49, // int, This is an example publisherId, please get your own code parameters
       },
       userInfo: {
         userId: 'userId', // user ID , If there is no data, please leave it blank
@@ -110,6 +99,9 @@ export default defineComponent({
        * code: 0, data: {  } // openAD.banner object and values
        * code: -1, msg: 'load extend js error!'
        * code: -2, msg: 'get openAD ads error!'
+       * code: -3, msg: 'Ajax Request 404 !'
+       * code: -4, msg: 'Ajax Request Timeout !'
+       * code: -5, msg: 'Ajax Request Error !'
        **/
     }
 
@@ -125,6 +117,9 @@ export default defineComponent({
        * code: 0, data: {  } // openAD.banner object and values
        * code: -1, msg: 'load extend js error!'
        * code: -2, msg: 'get openAD ads error!'
+       * code: -3, msg: 'Ajax Request 404 !'
+       * code: -4, msg: 'Ajax Request Timeout !'
+       * code: -5, msg: 'Ajax Request Error !'
        **/
     }
 
@@ -140,14 +135,17 @@ export default defineComponent({
          * code: 0, msg: 'send log info successfully'
          * code: -1, msg: 'can not find resource'
          * code: -2, msg: 'send log info failed'
+         * code: -3, msg: 'Ajax Request 404 !'
+         * code: -4, msg: 'Ajax Request Timeout !'
+         * code: -5, msg: 'Ajax Request Error !'
          **/
       });
     }
 
     const CallBackClickInfo = (adInfo) => {
       window.openADJsSDK.bridge.click(adInfo);
-      // no callbacks
-      // if you want to do something, you can write here.
+      // SDK will open a new app by the above function;
+      // No Callback, if you want to do sth, you should use yourself functions or methods;
     }
 
     return { router, TGAD, WEBAD, CallBackClickInfo }

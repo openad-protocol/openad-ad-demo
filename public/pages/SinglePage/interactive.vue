@@ -72,7 +72,10 @@ export default defineComponent({
       },
       // indicates the interactive ad is closed
       adClosed: (e) => {
-        console.log('adClosed', e);   // e = viewAD / click / close
+        console.log('adClosed', e);  // e = viewAD / click / close
+        // viewAD: viewed Ad completed, not clicked, not manually closed ads; client side needs to issue rewards level 1.
+        // click: click Ad completed, include viewed Ad, not manually closed ads; client side needs to issue rewards level 2.
+        // close: user manually closed ads. client side can not get any rewards.
       },
       // indicates clicked and jumps
       adClick: (e) => {
